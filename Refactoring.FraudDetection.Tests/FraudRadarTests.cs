@@ -15,7 +15,7 @@ namespace Refactoring.FraudDetection.Tests
     [TestClass]
     public class FraudRadarTests
     {
-        private FraudRadar _systemUnderTest;
+        private IFraudRadar _systemUnderTest;
         private IOrderDeserializer _orderDeserializer;
         private INormalizer _normalizer;
         private IFraudInspector _fraudInspector;
