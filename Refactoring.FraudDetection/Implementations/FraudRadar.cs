@@ -10,12 +10,15 @@ namespace Refactoring.FraudDetection
     using System.IO;
     using System.Linq;
 
-    public partial class FraudRadar
+    public partial class FraudRadar : IFraudRadar
     {
+        #region Properties
         private readonly IOrderDeserializer _orderDeserializer;
         private readonly INormalizer _normalizer;
         private readonly IFraudInspector _fraudInspector;
+        #endregion
 
+        #region Ctors.
         public FraudRadar(IOrderDeserializer orderDeserializer,
             INormalizer normalizer,
             IFraudInspector fraudInspector)
@@ -24,7 +27,9 @@ namespace Refactoring.FraudDetection
             _normalizer = normalizer;
             _fraudInspector = fraudInspector;
         }
+        #endregion
 
+        #region Public_Methods        
         public IEnumerable<FraudResult> Check(string filePath)
         {
             var orders = _orderDeserializer.Deserialize(File.ReadAllLines(filePath));
@@ -33,5 +38,6 @@ namespace Refactoring.FraudDetection
 
             return _fraudInspector.InspectOrders(orders.ToList());
         }
+        #endregion
     }
 }
