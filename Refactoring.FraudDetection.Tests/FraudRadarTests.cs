@@ -3,22 +3,37 @@
 // </copyright>
 
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Refactoring.FraudDetection.Contracts;
+using Refactoring.FraudDetection.Implementations;
 
 namespace Refactoring.FraudDetection.Tests
 {
     [TestClass]
     public class FraudRadarTests
     {
+        private FraudRadar _systemUnderTest;
+        private IOrderDeserializer _orderDeserializer;
+        private INormalizer _normalizer;
+        private IFraudInspector _fraudInspector;
+
+        [TestInitialize]
+        public void Setup()
+        {
+            _orderDeserializer = new OrderDeserializer();
+            _normalizer = new Normalizer();
+            _fraudInspector = new FraudInspector();
+            _systemUnderTest = new FraudRadar(_orderDeserializer, _normalizer, _fraudInspector);
+        }
+
         [TestMethod]
         [DeploymentItem("./Files/OneLineFile.txt", "Files")]
         public void CheckFraud_OneLineFile_NoFraudExpected()
         {
-            var result = ExecuteTest(Path.Combine(Environment.CurrentDirectory, "Files", "OneLineFile.txt"));
+            var result = _systemUnderTest.Check(Path.Combine(Environment.CurrentDirectory, "Files", "OneLineFile.txt")).ToList();
 
             result.Should().NotBeNull("The result should not be null.");
             result.Should().HaveCount(0, "The result should not contains fraudulent lines");
@@ -28,7 +43,7 @@ namespace Refactoring.FraudDetection.Tests
         [DeploymentItem("./Files/TwoLines_FraudulentSecond.txt", "Files")]
         public void CheckFraud_TwoLines_SecondLineFraudulent()
         {
-            var result = ExecuteTest(Path.Combine(Environment.CurrentDirectory, "Files", "TwoLines_FraudulentSecond.txt"));
+            var result = _systemUnderTest.Check(Path.Combine(Environment.CurrentDirectory, "Files", "TwoLines_FraudulentSecond.txt")).ToList();
 
             result.Should().NotBeNull("The result should not be null.");
             result.Should().HaveCount(1, "The result should contains the number of lines of the file");
@@ -40,7 +55,7 @@ namespace Refactoring.FraudDetection.Tests
         [DeploymentItem("./Files/ThreeLines_FraudulentSecond.txt", "Files")]
         public void CheckFraud_ThreeLines_SecondLineFraudulent()
         {
-            var result = ExecuteTest(Path.Combine(Environment.CurrentDirectory, "Files", "ThreeLines_FraudulentSecond.txt"));
+            var result = _systemUnderTest.Check(Path.Combine(Environment.CurrentDirectory, "Files", "ThreeLines_FraudulentSecond.txt")).ToList();
 
             result.Should().NotBeNull("The result should not be null.");
             result.Should().HaveCount(1, "The result should contains the number of lines of the file");
@@ -52,17 +67,10 @@ namespace Refactoring.FraudDetection.Tests
         [DeploymentItem("./Files/FourLines_MoreThanOneFraudulent.txt", "Files")]
         public void CheckFraud_FourLines_MoreThanOneFraudulent()
         {
-            var result = ExecuteTest(Path.Combine(Environment.CurrentDirectory, "Files", "FourLines_MoreThanOneFraudulent.txt"));
+            var result = _systemUnderTest.Check(Path.Combine(Environment.CurrentDirectory, "Files", "FourLines_MoreThanOneFraudulent.txt")).ToList();
 
             result.Should().NotBeNull("The result should not be null.");
             result.Should().HaveCount(2, "The result should contains the number of lines of the file");
-        }
-
-        private static List<FraudRadar.FraudResult> ExecuteTest(string filePath)
-        {
-            var fraudRadar = new FraudRadar();
-
-            return fraudRadar.Check(filePath).ToList();
         }
     }
 }
