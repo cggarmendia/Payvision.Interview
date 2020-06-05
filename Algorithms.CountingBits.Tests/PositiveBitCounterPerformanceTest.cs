@@ -17,23 +17,25 @@ namespace Algorithms.CountingBits.Tests
         private readonly PositiveBitCounterPerformance bitCounterPerformance = new PositiveBitCounterPerformance();
 
         [TestMethod]
-        public void The_Best_Count_Method_Is_CountWithLinkedList()
+        [DataRow(4)]
+        [DataRow(10000000)]
+        public void The_Best_Count_Method_Is_CountWithList(int numberOfInput)
         {
-            var list = Enumerable.Range(1, 100000);
+            var inputList = Enumerable.Range(0, numberOfInput);
 
-            var countWithLinkedListTimeSpan = ExecuteBitCounterMethod(list, bitCounterPerformance.CountWithLinkedList);
+            var countWithListTimeSpan = ExecutePositiveBitCounterMethod(inputList, bitCounterPerformance.CountWithList);
             Thread.Sleep(1000);
-            var countWithListTimeSpan = ExecuteBitCounterMethod(list, bitCounterPerformance.CountWithList);
+            var countWithArrayListTimeSpan = ExecutePositiveBitCounterMethod(inputList, bitCounterPerformance.CountWithArrayList);
             Thread.Sleep(1000);
-            var countWithArrayListTimeSpan = ExecuteBitCounterMethod(list, bitCounterPerformance.CountWithArrayList);
+            var countWithLinkedListTimeSpan = ExecutePositiveBitCounterMethod(inputList, bitCounterPerformance.CountWithLinkedList);
 
             Assert.AreEqual(
                 expected: true,
-                actual: (countWithLinkedListTimeSpan < countWithArrayListTimeSpan) && (countWithLinkedListTimeSpan < countWithListTimeSpan),
+                actual: (countWithListTimeSpan < countWithArrayListTimeSpan) && (countWithListTimeSpan < countWithLinkedListTimeSpan),
                 message: $"countWithListTimeSpan: {countWithListTimeSpan.TotalMilliseconds}, countWithArrayListTimeSpan: {countWithArrayListTimeSpan.TotalMilliseconds},  countWithLinkedListTimeSpan: {countWithLinkedListTimeSpan.TotalMilliseconds}");
         }
 
-        private TimeSpan ExecuteBitCounterMethod(IEnumerable<int> list, Action<int> method)
+        private TimeSpan ExecutePositiveBitCounterMethod(IEnumerable<int> list, Action<int> method)
         {
             var stopWatch = new Stopwatch();
             stopWatch.Start();
