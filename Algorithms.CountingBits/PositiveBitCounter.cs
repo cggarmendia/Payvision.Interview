@@ -17,24 +17,29 @@ namespace Algorithms.CountingBits
             if (input < 0)
                 throw new ArgumentException(EXCEPTION_MESSAGE);
 
-            var result = GetPositivesIndex(Convert.ToString(input, 2), out var positivesCount);
+            var positivesIndex = GetPositivesIndex(Convert.ToString(input, 2), out var positivesCount);
 
-            result.AddFirst(positivesCount);
+            var result = new List<int>(positivesCount + 1)
+            {
+                positivesCount
+            };
+
+            result.AddRange(positivesIndex);
 
             return result;
         }
 
-        private LinkedList<int> GetPositivesIndex(string binaryString, out int positivesCount)
+        private List<int> GetPositivesIndex(string binaryString, out int positivesCount)
         {
             positivesCount = 0;
-            var positivesIndex = new LinkedList<int>();
+            var positivesIndex = new List<int>();
             var binaryStringLastIndex = binaryString.Length - 1;
 
             for (var index = binaryStringLastIndex; index >= 0; index--)
             {
                 if (binaryString[index].Equals(POSITVE_BIT))
                 {
-                    positivesIndex.AddLast(Math.Abs(index - binaryStringLastIndex));
+                    positivesIndex.Add(Math.Abs(index - binaryStringLastIndex));
                     positivesCount++;
                 }
             }
