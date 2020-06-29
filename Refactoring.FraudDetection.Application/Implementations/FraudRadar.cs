@@ -7,6 +7,7 @@ namespace Refactoring.FraudDetection
     using Refactoring.FraudDetection.Contracts;
     using Refactoring.FraudDetection.Domain.Entities;
     using Refactoring.FraudDetection.Domain.Services;
+    using Refactoring.FraudDetection.Specification.Enum;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -36,7 +37,7 @@ namespace Refactoring.FraudDetection
 
             _normalizer.NormalizeOrders(ordersDeserialize);
 
-            return _fraudInspector.InspectOrders(ordersDeserialize.ToList());
+            return _fraudInspector.InspectOrders(ordersDeserialize.ToList(), FraudDetectionStrategiesEnum.Juliet);
         }
         #endregion
     }

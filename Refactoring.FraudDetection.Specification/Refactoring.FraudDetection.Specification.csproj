@@ -7,9 +7,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Refactoring.FraudDetection.Domain\Refactoring.FraudDetection.Domain.csproj" />
+    <ProjectReference Include="..\Refactoring.FraudDetection.Infrastructure.Cache\Refactoring.FraudDetection.Infrastructure.Cache.csproj" />
     <ProjectReference Include="..\Refactoring.FraudDetection.Infrastructure.Deserializer\Refactoring.FraudDetection.Infrastructure.Deserializer.csproj" />
     <ProjectReference Include="..\Refactoring.FraudDetection.Infrastructure.Normalizer\Refactoring.FraudDetection.Infrastructure.Normalizer.csproj" />
-    <ProjectReference Include="..\Refactoring.FraudDetection.Specification\Refactoring.FraudDetection.Specification.csproj" />
   </ItemGroup>
 
 </Project>

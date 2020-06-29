@@ -33,6 +33,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithms.CountingBits.App
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Refactoring.FraudDetection.Application", "Refactoring.FraudDetection.Application\Refactoring.FraudDetection.Application.csproj", "{FB70DCED-6531-43CC-B336-D65E1C65B1B2}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Refactoring.FraudDetection.Specification", "Refactoring.FraudDetection.Specification\Refactoring.FraudDetection.Specification.csproj", "{DA521456-A9B8-4A35-9E32-0AD6611DEC42}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Refactoring.FraudDetection.Infrastructure.Cache", "Refactoring.FraudDetection.Infrastructure.Cache\Refactoring.FraudDetection.Infrastructure.Cache.csproj", "{CA913A76-B0A6-40EE-A203-4121819382BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +71,14 @@ Global
 		{FB70DCED-6531-43CC-B336-D65E1C65B1B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB70DCED-6531-43CC-B336-D65E1C65B1B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB70DCED-6531-43CC-B336-D65E1C65B1B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA521456-A9B8-4A35-9E32-0AD6611DEC42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA521456-A9B8-4A35-9E32-0AD6611DEC42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA521456-A9B8-4A35-9E32-0AD6611DEC42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA521456-A9B8-4A35-9E32-0AD6611DEC42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA913A76-B0A6-40EE-A203-4121819382BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA913A76-B0A6-40EE-A203-4121819382BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA913A76-B0A6-40EE-A203-4121819382BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA913A76-B0A6-40EE-A203-4121819382BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,6 +94,8 @@ Global
 		{D5755389-1E36-43FE-98A9-56B66570CE97} = {3235E46E-6F40-44AF-839F-EAA41EEBCC65}
 		{1DBE0EE0-38DB-4366-9051-57D9BA878CD0} = {6007E04C-4A9A-4630-9609-C970401D138D}
 		{FB70DCED-6531-43CC-B336-D65E1C65B1B2} = {6007E04C-4A9A-4630-9609-C970401D138D}
+		{DA521456-A9B8-4A35-9E32-0AD6611DEC42} = {6007E04C-4A9A-4630-9609-C970401D138D}
+		{CA913A76-B0A6-40EE-A203-4121819382BC} = {3235E46E-6F40-44AF-839F-EAA41EEBCC65}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6E30AEE5-6545-47B4-8526-EFB40E2BEC1C}

@@ -9,8 +9,14 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Refactoring.FraudDetection.Contracts;
 using Refactoring.FraudDetection.Domain.Services;
 using Refactoring.FraudDetection.Implementations;
+using Refactoring.FraudDetection.Infrastructure.Cache.Contracts;
+using Refactoring.FraudDetection.Infrastructure.Cache.Implementations;
 using Refactoring.FraudDetection.Infrastructure.Deserializer.Implementations;
 using Refactoring.FraudDetection.Infrastructure.Normalizer.Implementations;
+using Refactoring.FraudDetection.Specification.Contracts.Factory;
+using Refactoring.FraudDetection.Specification.Contracts.Strategy;
+using Refactoring.FraudDetection.Specification.Implementations.Factory;
+using Refactoring.FraudDetection.Specification.Implementations.Strategy;
 
 namespace Refactoring.FraudDetection.Tests
 {
@@ -21,13 +27,19 @@ namespace Refactoring.FraudDetection.Tests
         private IDeserializer _orderDeserializer;
         private INormalizer _normalizer;
         private IFraudInspector _fraudInspector;
+        private ICustomCache _customCache;
+        private ISpecificationFactory _specificationFactory;
+        private ISpecificationStrategyContext _specificationStrategyContext;
 
         [TestInitialize]
         public void Setup()
         {
             _orderDeserializer = new Deserializer();
             _normalizer = new Normalizer();
-            _fraudInspector = new FraudInspector();
+            _customCache = new CustomCache();
+            _specificationFactory = new SpecificationFactory(_customCache);
+            _specificationStrategyContext = new SpecificationStrategyContext(_specificationFactory);
+            _fraudInspector = new FraudInspector(_specificationStrategyContext);
             _systemUnderTest = new FraudRadar(_orderDeserializer, _normalizer, _fraudInspector);
         }
 

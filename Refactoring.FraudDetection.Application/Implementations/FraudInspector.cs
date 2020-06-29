@@ -1,15 +1,27 @@
 ﻿using Refactoring.FraudDetection.Contracts;
 using Refactoring.FraudDetection.Domain.Entities;
+using Refactoring.FraudDetection.Specification.Contracts.Strategy;
+using Refactoring.FraudDetection.Specification.Dto;
+using Refactoring.FraudDetection.Specification.Enum;
+using System;
 using System.Collections.Generic;
 
 namespace Refactoring.FraudDetection.Implementations
 {
     public class FraudInspector : IFraudInspector
     {
+        private readonly ISpecificationStrategyContext _specificationContext;
+
+        public FraudInspector(ISpecificationStrategyContext specificationContext)
+        {
+            _specificationContext = specificationContext;
+        }
+
         #region Public_Methods
-        public IEnumerable<FraudResult> InspectOrders(IList<Order> orders)
+        public IEnumerable<FraudResult> InspectOrders(IList<Order> orders, FraudDetectionStrategiesEnum strategiesEnum)
         {
             var fraudResults = new List<FraudResult>();
+            _specificationContext.SetStrategy(strategiesEnum);
 
             for (int i = 0; i < orders.Count; i++)
             {
@@ -21,8 +33,8 @@ namespace Refactoring.FraudDetection.Implementations
 
                     if (currentOrder.DealId == orderToCompare.DealId)
                     {
-                        if (IsTheSameEmailButDifferentCreditCard(currentOrder, orderToCompare)
-                            || IsTheSameAddressButDifferentCreditCard(currentOrder, orderToCompare))
+                        if (_specificationContext.IsSatisfiedBy(GetSpecificationDto(currentOrder), 
+                            GetSpecificationDto(orderToCompare)))
                         {
                             fraudResults.Add(new FraudResult
                             {
@@ -36,22 +48,23 @@ namespace Refactoring.FraudDetection.Implementations
 
             return fraudResults;
         }
+
         #endregion
 
         #region Private_Methods
-        private static bool IsTheSameEmailButDifferentCreditCard(Order currentOrder, Order orderToCompare)
+        private SpecificationDto GetSpecificationDto(Order order)
         {
-            return currentOrder.Email == orderToCompare.Email
-                && currentOrder.CreditCard != orderToCompare.CreditCard;
-        }
-
-        private static bool IsTheSameAddressButDifferentCreditCard(Order currentOrder, Order orderToCompare)
-        {
-            return currentOrder.State == orderToCompare.State
-                        && currentOrder.ZipCode == orderToCompare.ZipCode
-                        && currentOrder.Street == orderToCompare.Street
-                        && currentOrder.City == orderToCompare.City
-                        && currentOrder.CreditCard != orderToCompare.CreditCard;
+            return new SpecificationDto()
+            {
+                City = order.City,
+                CreditCard = order.CreditCard,
+                DealId = order.DealId,
+                Email = order.Email,
+                OrderId = order.OrderId,
+                State = order.State,
+                Street = order.Street,
+                ZipCode = order.ZipCode
+            };
         }
         #endregion
     }
