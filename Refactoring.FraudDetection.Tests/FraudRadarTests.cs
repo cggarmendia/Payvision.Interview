@@ -7,7 +7,10 @@ using System.Linq;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Refactoring.FraudDetection.Contracts;
+using Refactoring.FraudDetection.Domain.Services;
 using Refactoring.FraudDetection.Implementations;
+using Refactoring.FraudDetection.Infrastructure.Deserializer.Implementations;
+using Refactoring.FraudDetection.Infrastructure.Normalizer.Implementations;
 
 namespace Refactoring.FraudDetection.Tests
 {
@@ -15,14 +18,14 @@ namespace Refactoring.FraudDetection.Tests
     public class FraudRadarTests
     {
         private IFraudRadar _systemUnderTest;
-        private IOrderDeserializer _orderDeserializer;
+        private IDeserializer _orderDeserializer;
         private INormalizer _normalizer;
         private IFraudInspector _fraudInspector;
 
         [TestInitialize]
         public void Setup()
         {
-            _orderDeserializer = new OrderDeserializer();
+            _orderDeserializer = new Deserializer();
             _normalizer = new Normalizer();
             _fraudInspector = new FraudInspector();
             _systemUnderTest = new FraudRadar(_orderDeserializer, _normalizer, _fraudInspector);

@@ -5,20 +5,21 @@
 namespace Refactoring.FraudDetection
 {
     using Refactoring.FraudDetection.Contracts;
-    using Refactoring.FraudDetection.Dto;
+    using Refactoring.FraudDetection.Domain.Entities;
+    using Refactoring.FraudDetection.Domain.Services;
     using System.Collections.Generic;
     using System.Linq;
 
     public partial class FraudRadar : IFraudRadar
     {
         #region Properties
-        private readonly IOrderDeserializer _orderDeserializer;
+        private readonly IDeserializer _orderDeserializer;
         private readonly INormalizer _normalizer;
         private readonly IFraudInspector _fraudInspector;
         #endregion
 
         #region Ctors.
-        public FraudRadar(IOrderDeserializer orderDeserializer,
+        public FraudRadar(IDeserializer orderDeserializer,
             INormalizer normalizer,
             IFraudInspector fraudInspector)
         {
@@ -31,7 +32,7 @@ namespace Refactoring.FraudDetection
         #region Public_Methods        
         public IEnumerable<FraudResult> Check(IEnumerable<string> serializedOrders)
         {
-            var ordersDeserialize = _orderDeserializer.Deserialize(serializedOrders);
+            var ordersDeserialize = _orderDeserializer.DeserializeOrder(serializedOrders);
 
             _normalizer.NormalizeOrders(ordersDeserialize);
 

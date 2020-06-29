@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Algorithms.CountingBits\Algorithms.CountingBits.csproj" />
+    <ProjectReference Include="..\Algorithms.CountingBits.Application\Algorithms.CountingBits.Application.csproj" />
   </ItemGroup>
 
 </Project>

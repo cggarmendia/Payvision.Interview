@@ -1,9 +1,9 @@
-﻿using Refactoring.FraudDetection.Contracts;
-using Refactoring.FraudDetection.Dto;
+﻿using Refactoring.FraudDetection.Domain.Entities;
+using Refactoring.FraudDetection.Domain.Services;
 using System;
 using System.Collections.Generic;
 
-namespace Refactoring.FraudDetection.Implementations
+namespace Refactoring.FraudDetection.Infrastructure.Normalizer.Implementations
 {
     public class Normalizer : INormalizer
     {
@@ -19,10 +19,8 @@ namespace Refactoring.FraudDetection.Implementations
                 order.State = NormalizeState(order.State);
             }
         }
-        #endregion
-
-        #region Private_Methods
-        private string NormalizeEmail(string email)
+        
+        public string NormalizeEmail(string email)
         {
             var aux = email.Split(new char[] { '@' }, StringSplitOptions.RemoveEmptyEntries);
 
@@ -33,12 +31,12 @@ namespace Refactoring.FraudDetection.Implementations
             return string.Join("@", new string[] { aux[0], aux[1] });
         }
 
-        private string NormalizeStreet(string street)
+        public string NormalizeStreet(string street)
         {
             return street.Replace("st.", "street").Replace("rd.", "road");
         }
 
-        private string NormalizeState(string state)
+        public string NormalizeState(string state)
         {
             return state.Replace("il", "illinois").Replace("ca", "california").Replace("ny", "new york");
         }

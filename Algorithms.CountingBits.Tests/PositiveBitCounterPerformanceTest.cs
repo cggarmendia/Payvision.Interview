@@ -17,6 +17,7 @@ namespace Algorithms.CountingBits.Tests
         private readonly PositiveBitCounterPerformance bitCounterPerformance = new PositiveBitCounterPerformance();
 
         [TestMethod]
+        [Ignore]
         [DataRow(4)]
         [DataRow(10000000)]
         public void The_Best_Count_Method_Is_CountWithList(int numberOfInput)

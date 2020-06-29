@@ -1,8 +1,4 @@
-﻿// <copyright file="FraudRadar.cs" company="Payvision">
-// Copyright (c) Payvision. All rights reserved.
-// </copyright>
-
-namespace Refactoring.FraudDetection.Dto
+﻿namespace Refactoring.FraudDetection.Domain.Entities
 {
     public class Order
     {

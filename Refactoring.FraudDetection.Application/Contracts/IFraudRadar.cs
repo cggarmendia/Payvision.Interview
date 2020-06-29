@@ -2,7 +2,7 @@
 // Copyright (c) Payvision. All rights reserved.
 // </copyright>
 
-using Refactoring.FraudDetection.Dto;
+using Refactoring.FraudDetection.Domain.Entities;
 using System.Collections.Generic;
 
 namespace Refactoring.FraudDetection.Contracts

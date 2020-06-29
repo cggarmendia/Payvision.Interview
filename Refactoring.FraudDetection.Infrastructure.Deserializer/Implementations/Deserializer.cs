@@ -1,14 +1,14 @@
-﻿using Refactoring.FraudDetection.Contracts;
-using Refactoring.FraudDetection.Dto;
+﻿using Refactoring.FraudDetection.Domain.Entities;
+using Refactoring.FraudDetection.Domain.Services;
 using System;
 using System.Collections.Generic;
 
-namespace Refactoring.FraudDetection.Implementations
+namespace Refactoring.FraudDetection.Infrastructure.Deserializer.Implementations
 {
-    public class OrderDeserializer : IOrderDeserializer
+    public class Deserializer : IDeserializer
     {
         #region Public_Methods
-        public IEnumerable<Order> Deserialize(IEnumerable<string> orders)
+        public IEnumerable<Order> DeserializeOrder(IEnumerable<string> orders)
         {
             foreach (var order in orders)
             {

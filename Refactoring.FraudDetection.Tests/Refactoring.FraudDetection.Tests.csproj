@@ -15,7 +15,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Refactoring.FraudDetection\Refactoring.FraudDetection.csproj" />
+    <ProjectReference Include="..\Refactoring.FraudDetection.Application\Refactoring.FraudDetection.Application.csproj" />
+    <ProjectReference Include="..\Refactoring.FraudDetection.Domain\Refactoring.FraudDetection.Domain.csproj" />
+    <ProjectReference Include="..\Refactoring.FraudDetection.Infrastructure.Deserializer\Refactoring.FraudDetection.Infrastructure.Deserializer.csproj" />
+    <ProjectReference Include="..\Refactoring.FraudDetection.Infrastructure.Normalizer\Refactoring.FraudDetection.Infrastructure.Normalizer.csproj" />
   </ItemGroup>
 
   <ItemGroup>

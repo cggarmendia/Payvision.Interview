@@ -3,23 +3,35 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29009.5
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01.Algorithms - Counting Bits", "01.Algorithms - Counting Bits", "{F9D2ED27-3445-4785-AA5A-BE47877DF50A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithms.CountingBits.Tests", "Algorithms.CountingBits.Tests\Algorithms.CountingBits.Tests.csproj", "{792CF148-C327-4DC6-A5E0-481276305C6D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Refactoring.FraudDetection.Tests", "Refactoring.FraudDetection.Tests\Refactoring.FraudDetection.Tests.csproj", "{2CA139A0-D198-402A-96F1-8A6315E1E6B5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Layers", "1 - Layers", "{9CDCC597-0A99-48CF-A32E-70DB29578853}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.3 - Application", "1.3 - Application", "{6007E04C-4A9A-4630-9609-C970401D138D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.4 - Domain", "1.4 - Domain", "{17D87A18-F0ED-4495-85E1-31599C726E9B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.5 - Infrastructure", "1.5 - Infrastructure", "{3235E46E-6F40-44AF-839F-EAA41EEBCC65}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Doc", "0 - Doc", "{D9E74ACB-46DE-4EBE-868E-2F93652C9551}"
 	ProjectSection(SolutionItems) = preProject
 		01.Algorithm.CountingBits.Instructions.pdf = 01.Algorithm.CountingBits.Instructions.pdf
-	EndProjectSection
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithms.CountingBits", "Algorithms.CountingBits\Algorithms.CountingBits.csproj", "{3810320F-AFDA-47F7-B5C7-E4D0D07942DA}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02.Refactoring - Fraud Detection", "02.Refactoring - Fraud Detection", "{56468579-8CC5-463E-8837-19AD9F44A2A1}"
-	ProjectSection(SolutionItems) = preProject
 		02.Refactoring.FraudDetection.Instructions.pdf = 02.Refactoring.FraudDetection.Instructions.pdf
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refactoring.FraudDetection", "Refactoring.FraudDetection\Refactoring.FraudDetection.csproj", "{8224980E-09C3-4AB6-AC81-01106DD46C91}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Test", "2 - Test", "{4124795C-4D7B-4E5A-90A3-9091EBD545AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.CountingBits.Tests", "Algorithms.CountingBits.Tests\Algorithms.CountingBits.Tests.csproj", "{792CF148-C327-4DC6-A5E0-481276305C6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Refactoring.FraudDetection.Domain", "Refactoring.FraudDetection.Domain\Refactoring.FraudDetection.Domain.csproj", "{B7725DF2-502F-45AC-A5CD-DBD2A7EA85E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refactoring.FraudDetection.Tests", "Refactoring.FraudDetection.Tests\Refactoring.FraudDetection.Tests.csproj", "{2CA139A0-D198-402A-96F1-8A6315E1E6B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Refactoring.FraudDetection.Infrastructure.Normalizer", "Refactoring.FraudDetection.Infrastructure.Normalizer\Refactoring.FraudDetection.Infrastructure.Normalizer.csproj", "{11D4EF45-1519-4CFF-A3E0-FD43B9A233C1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Refactoring.FraudDetection.Infrastructure.Deserializer", "Refactoring.FraudDetection.Infrastructure.Deserializer\Refactoring.FraudDetection.Infrastructure.Deserializer.csproj", "{D5755389-1E36-43FE-98A9-56B66570CE97}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithms.CountingBits.Application", "Algorithms.CountingBits.Application\Algorithms.CountingBits.Application.csproj", "{1DBE0EE0-38DB-4366-9051-57D9BA878CD0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Refactoring.FraudDetection.Application", "Refactoring.FraudDetection.Application\Refactoring.FraudDetection.Application.csproj", "{FB70DCED-6531-43CC-B336-D65E1C65B1B2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,14 +39,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3810320F-AFDA-47F7-B5C7-E4D0D07942DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3810320F-AFDA-47F7-B5C7-E4D0D07942DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3810320F-AFDA-47F7-B5C7-E4D0D07942DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3810320F-AFDA-47F7-B5C7-E4D0D07942DA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8224980E-09C3-4AB6-AC81-01106DD46C91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8224980E-09C3-4AB6-AC81-01106DD46C91}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8224980E-09C3-4AB6-AC81-01106DD46C91}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8224980E-09C3-4AB6-AC81-01106DD46C91}.Release|Any CPU.Build.0 = Release|Any CPU
 		{792CF148-C327-4DC6-A5E0-481276305C6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{792CF148-C327-4DC6-A5E0-481276305C6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{792CF148-C327-4DC6-A5E0-481276305C6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -43,15 +47,41 @@ Global
 		{2CA139A0-D198-402A-96F1-8A6315E1E6B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CA139A0-D198-402A-96F1-8A6315E1E6B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CA139A0-D198-402A-96F1-8A6315E1E6B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7725DF2-502F-45AC-A5CD-DBD2A7EA85E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7725DF2-502F-45AC-A5CD-DBD2A7EA85E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7725DF2-502F-45AC-A5CD-DBD2A7EA85E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7725DF2-502F-45AC-A5CD-DBD2A7EA85E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11D4EF45-1519-4CFF-A3E0-FD43B9A233C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11D4EF45-1519-4CFF-A3E0-FD43B9A233C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11D4EF45-1519-4CFF-A3E0-FD43B9A233C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11D4EF45-1519-4CFF-A3E0-FD43B9A233C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5755389-1E36-43FE-98A9-56B66570CE97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5755389-1E36-43FE-98A9-56B66570CE97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5755389-1E36-43FE-98A9-56B66570CE97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5755389-1E36-43FE-98A9-56B66570CE97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DBE0EE0-38DB-4366-9051-57D9BA878CD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DBE0EE0-38DB-4366-9051-57D9BA878CD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DBE0EE0-38DB-4366-9051-57D9BA878CD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DBE0EE0-38DB-4366-9051-57D9BA878CD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB70DCED-6531-43CC-B336-D65E1C65B1B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB70DCED-6531-43CC-B336-D65E1C65B1B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB70DCED-6531-43CC-B336-D65E1C65B1B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB70DCED-6531-43CC-B336-D65E1C65B1B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{3810320F-AFDA-47F7-B5C7-E4D0D07942DA} = {F9D2ED27-3445-4785-AA5A-BE47877DF50A}
-		{8224980E-09C3-4AB6-AC81-01106DD46C91} = {56468579-8CC5-463E-8837-19AD9F44A2A1}
-		{792CF148-C327-4DC6-A5E0-481276305C6D} = {F9D2ED27-3445-4785-AA5A-BE47877DF50A}
-		{2CA139A0-D198-402A-96F1-8A6315E1E6B5} = {56468579-8CC5-463E-8837-19AD9F44A2A1}
+		{792CF148-C327-4DC6-A5E0-481276305C6D} = {4124795C-4D7B-4E5A-90A3-9091EBD545AA}
+		{2CA139A0-D198-402A-96F1-8A6315E1E6B5} = {4124795C-4D7B-4E5A-90A3-9091EBD545AA}
+		{6007E04C-4A9A-4630-9609-C970401D138D} = {9CDCC597-0A99-48CF-A32E-70DB29578853}
+		{17D87A18-F0ED-4495-85E1-31599C726E9B} = {9CDCC597-0A99-48CF-A32E-70DB29578853}
+		{3235E46E-6F40-44AF-839F-EAA41EEBCC65} = {9CDCC597-0A99-48CF-A32E-70DB29578853}
+		{B7725DF2-502F-45AC-A5CD-DBD2A7EA85E5} = {17D87A18-F0ED-4495-85E1-31599C726E9B}
+		{11D4EF45-1519-4CFF-A3E0-FD43B9A233C1} = {3235E46E-6F40-44AF-839F-EAA41EEBCC65}
+		{D5755389-1E36-43FE-98A9-56B66570CE97} = {3235E46E-6F40-44AF-839F-EAA41EEBCC65}
+		{1DBE0EE0-38DB-4366-9051-57D9BA878CD0} = {6007E04C-4A9A-4630-9609-C970401D138D}
+		{FB70DCED-6531-43CC-B336-D65E1C65B1B2} = {6007E04C-4A9A-4630-9609-C970401D138D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6E30AEE5-6545-47B4-8526-EFB40E2BEC1C}

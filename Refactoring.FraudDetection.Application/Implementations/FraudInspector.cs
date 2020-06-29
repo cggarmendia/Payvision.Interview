@@ -1,5 +1,5 @@
 ﻿using Refactoring.FraudDetection.Contracts;
-using Refactoring.FraudDetection.Dto;
+using Refactoring.FraudDetection.Domain.Entities;
 using System.Collections.Generic;
 
 namespace Refactoring.FraudDetection.Implementations
