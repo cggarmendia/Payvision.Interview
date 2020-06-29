@@ -7,7 +7,6 @@ namespace Refactoring.FraudDetection
     using Refactoring.FraudDetection.Contracts;
     using Refactoring.FraudDetection.Dto;
     using System.Collections.Generic;
-    using System.IO;
     using System.Linq;
 
     public partial class FraudRadar : IFraudRadar
@@ -30,13 +29,13 @@ namespace Refactoring.FraudDetection
         #endregion
 
         #region Public_Methods        
-        public IEnumerable<FraudResult> Check(string filePath)
+        public IEnumerable<FraudResult> Check(IEnumerable<string> serializedOrders)
         {
-            var orders = _orderDeserializer.Deserialize(File.ReadAllLines(filePath));
+            var ordersDeserialize = _orderDeserializer.Deserialize(serializedOrders);
 
-            _normalizer.NormalizeOrders(orders);
+            _normalizer.NormalizeOrders(ordersDeserialize);
 
-            return _fraudInspector.InspectOrders(orders.ToList());
+            return _fraudInspector.InspectOrders(ordersDeserialize.ToList());
         }
         #endregion
     }

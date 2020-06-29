@@ -9,6 +9,6 @@ namespace Refactoring.FraudDetection.Contracts
 {
     public interface IFraudRadar
     {
-        IEnumerable<FraudResult> Check(string filePath);
+        IEnumerable<FraudResult> Check(IEnumerable<string> serializedOrders);
     }
 }
